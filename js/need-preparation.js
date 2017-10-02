@@ -17,56 +17,15 @@ function refreshCache () {
 	localStorage.setItem('needPreparationList', JSON.stringify(cachedNeedPreparationList))
 }
 
-class needPreparationItemClass {
-	constructor (name, count, index) {
-		this.name = name
-		this.count = isNaN(count) ? 1 : Number(count)
-		this.index = index || 0
-	}
-
-	getCacheData () {
-		return Object.assign({}, this)
-	}
-
-	changeName (newName) {
-		this.name = newName
-	}
-
-	addCount () {
-		this.count ++
-		this.refreshCount()
-	}
-
-	minusCount () {
-		this.count = Math.max(0, this.count- 1)
-		this.refreshCount()
-	}
-
-	refreshCount () {
-		let itemDOM = $(`.need-preparation-list dd[data-index=${this.index || 0}]`)
-		itemDOM.find('[name=prepareCount]').html(`(${this.count})`)
-	}
-
-	render () {
-		return $(`<dd data-index='${this.index}'>
-			<input name='needPreparationItemName' type='text' tabindex='${this.index + 1}' value='${this.name ||''}'>
-			<span name='prepareCount'>(${this.count})</span>
-			<button name='addPrepareCount'>+</button>
-			<button name='minusPrepareCount'>-</button>
-			<button name='delPrepare'>x</button>
-		</dd>`)
-	}
-}
-
 class needPreparationListClass {
 	constructor (list) {
 		this.dom = $('.need-preparation-list')
 		this.list = Array.isArray(list) 
-			? list.map((item, index) => new needPreparationItemClass(item.name, item.count, index))
+			? list.map((item, index) => new ItemClass(item.name, item.count, index))
 			: []
 
 		if (!this.list.length) {
-			this.list.push(new needPreparationItemClass())
+			this.list.push(new ItemClass())
 		}
 
 		this.removeItem = this.removeItem.bind(this)
@@ -81,7 +40,7 @@ class needPreparationListClass {
 	}
 
 	addItem (item = {}) {
-		this.list.push(new needPreparationItemClass(item.name, item.count, this.list.length))
+		this.list.push(new ItemClass(item.name, item.count, this.list.length))
 	}
 
 	getItem (index) {
