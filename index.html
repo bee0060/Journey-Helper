@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Journey Helper</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<h1>出游助手</h1>
+	<a class='top-list-title' data-name='needPrepare'>待准备清单</a>
+	<a class='top-list-title' data-name='prepared'>已准备清单</a>
+	<a class='top-list-title' data-name='packages'>装备清单</a>
+
+	<div class="body-container" name='needPrepare'>
+		<dl class='need-preparation-list'>
+			<dt>
+				待准备清单
+				<button onClick='addNeedPreparationItem()'>+</button>
+				<button onClick='clearNeedPreparationList()'>清空清单</button>
+			</dt>			
+		</dl>
+	</div>
+	<div class="body-container" name='prepared'>
+		<dl>
+			<dt>
+				已准备清单
+			</dt>			
+		</dl>
+	</div>
+	<div class="body-container" name='packages'>
+		<dl>
+			<dt>
+				装备清单
+			</dt>			
+		</dl>
+	</div>
+	<script src='js/jquery-1.9.0.min.js'></script>
+	<script src='js/store.js'></script>
+	<script src='js/main.js'></script>
+	<script src='js/need-preparation.js'></script>
+	<script>
+		$(document).ready(function() {
+			mainController.bootstrap()
+		})
+	</script>
+</body>
+</html>

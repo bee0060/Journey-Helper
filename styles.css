@@ -1,0 +1,49 @@
+input[type=text] {
+	border: 0;
+	cursor: pointer;
+}
+
+.top-list-title {
+	border: 2px solid lightblue;
+	border-bottom: 0;
+	cursor: pointer;
+
+	padding: 5px;
+	margin: 5px;
+}
+
+.top-list-title.active {
+	background-color: lightyellow;
+}
+
+.body-container {
+	border: 2px solid lightblue;
+	display: none;
+	margin-top: 3px;
+	height: 100%;
+}
+
+.need-preparation-list dd {
+	border-left: 4px solid pink;
+	margin-left: 20px;
+	margin-bottom: 5px;
+	padding-left: 3px;
+}
+
+.need-preparation-list dd button {
+	height: 20px;
+	line-height: 1;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	vertical-align: middle;
+	width: 20px;
+}
+
+.need-preparation-list dt {
+	margin-bottom: 10px;
+}
+
+.need-preparation-list dd:last-child input {
+	border: 1 solid black;
+}
