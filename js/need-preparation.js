@@ -20,7 +20,7 @@ function refreshCache () {
 class needPreparationItemClass {
 	constructor (name, count, index) {
 		this.name = name
-		this.count = isNaN(count) ? 0 : Number(count)
+		this.count = isNaN(count) ? 1 : Number(count)
 		this.index = index || 0
 	}
 

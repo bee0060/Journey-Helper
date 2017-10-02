@@ -28,10 +28,34 @@
 		</dl>
 	</div>
 	<div class="body-container" name='packages'>
-		<dl>
+		<dl class='packages-list'>
 			<dt>
 				装备清单
-			</dt>			
+				<button onClick='addNeedPreparationItem()'>+容器</button>
+				<button onClick='clearNeedPreparationList()'>清空清单</button>
+			</dt>
+			<dd class='package-container'>
+				<dl>
+					<dt class='package-container-name'>
+						行李箱
+						<button onClick='addNeedPreparationItem()'>+东西</button>
+						<button onClick='clearNeedPreparationList()'>清空容器</button>
+					</dt>
+					<dd class='package-item'>衣服裤子</dd>
+				</dl>
+			</dd>
+			<dd>
+				<dl>
+					<dt>背包</dt>
+					<dd>钱包</dd>
+				</dl>
+			</dd>
+			<dd>
+				<dl>
+					<dt>单肩包</dt>
+					<dd>手机</dd>
+				</dl>
+			</dd>
 		</dl>
 	</div>
 	<script src='js/jquery-1.9.0.min.js'></script>

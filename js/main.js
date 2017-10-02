@@ -16,6 +16,16 @@ const mainController = (function(global) {
 			let target = $(e.target)
 			showList(target.data('name'))
 		})
+
+		$(document)
+			.on('touchstart', preventEventsDefault)
+			.on('touchmove', preventEventsDefault)
+			.on('touchend', preventEventsDefault)
+			.on('touchcancel', preventEventsDefault)
+	}
+
+	const preventEventsDefault = (e) => {
+		e.preventDefault()
 	}
 
 	const showList = (currentTab) => {
